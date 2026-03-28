@@ -66,7 +66,7 @@
 
 4.其他补充知识点
 
-- auto关键字：自动推导变量类型，简化迭代器、复杂容器的类型书写（如vector<int>::iterator可简化为auto）；
+- auto关键字：自动推导变量类型，简化迭代器、复杂容器的类型书写（如vector int ::iterator可简化为auto）；
 
 - 内存管理：new/delete的成对使用，避免内存泄漏（链表实现中尤为重要）；
 

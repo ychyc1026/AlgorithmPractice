@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h> // 用于 malloc/free、exit
 #include <stdbool.h>
-#define max_s 100
 typedef struct Node {
     int data;          
     struct Node* next; 
@@ -12,7 +11,7 @@ typedef struct queue {
     int size;          
 } queue;
 void init(queue* q) {
-    if (q == NULL) return;
+    if (q == NULL) return;//这行有点意思，判断指向堆内存的指针
     q->front = NULL;
     q->rear = NULL;
     q->size = 0;
@@ -36,7 +35,7 @@ void push(queue* q, int a) {
 
     // 创建新节点
     Node* new_node = (Node*)malloc(sizeof(Node));
-    if (new_node == NULL) { // 内存分配失败（真正的“满”）
+    if (new_node == NULL) { // 内存分配失败（真正的“满”），一般不可能
         printf("内存不足，入队失败\n");
         return;
     }

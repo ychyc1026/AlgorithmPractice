@@ -1,7 +1,9 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+//核心思想：bool动态数组，如果是链表，还要删除杀的人，bool直接标false，报数跳过
+//这样坏人都在k——2k-1上，直接判断标flase的位置是不是这这个范围，链表判断一边界难定，二要看数
+//取余成环
 bool check(int k, int m) {
     vector<bool> alive(2 * k, true);//true是活着
     int remaining = 2 * k;//剩下多少人
@@ -16,7 +18,7 @@ bool check(int k, int m) {
         while (step--) 
         {
             pos = (pos + 1) % (2 * k);
-            while (!alive[pos]) //pos装的假就执行
+            while (!alive[pos]) //pos装的假说明死了，跳过
                 pos = (pos + 1) % (2 * k);
         }
 
@@ -39,7 +41,7 @@ int main() {
     cin >> k;
     int m = 1;
     while (true) {
-        m++;
+        m++;//相当于m从2开始，不然m<=1，每个人都杀了
         if (check(k, m)) {
             cout << m << endl;
             break;
