@@ -30,7 +30,7 @@ int binarySearch(int* nums, int target, int left, int right)
 //非递归版
 int binarySearch(int* nums, int target) {
     int left = 0;
-    int right = sizeof(nums)- 1; // 左闭右闭区间 [0, n-1]
+    int right = sizeof(nums) / sizeof(nums[0])- 1; // 左闭右闭区间 [0, n-1]
 
     while(left <= right) { // 区间还有元素才循环
         int mid = left + (right - left) / 2; // 防止溢出，等价于 (left+right)/2
